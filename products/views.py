@@ -284,7 +284,7 @@ def get_products_ajax_view(request):
             data = []
 
             products = Product.objects.filter(
-                name__icontains=request.POST['term'])
+                name__icontains=request.POST['term'],status='ACTIVE')
             for product in products[0:10]:
                 item = product.to_json()
                 data.append(item)
